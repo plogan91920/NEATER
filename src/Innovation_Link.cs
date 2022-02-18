@@ -4,24 +4,27 @@ public class Innovation_Link
 
     int Start;
     int End;
+    List<string> Path = new List<string>();
     int Cardinality = 1;
 
-    Innovation_Link(int start, int end)
+    Innovation_Link(int start, int end, List<string> path)
     {
         Start = start;
         End = end;
+        Path = path;
+
+        Innovation_Links.Add(this);
     }
 
-    public static int Innovate(int start, int end)
+    public static int Innovate(int start, int end, List<string> path)
     {
-        int foundLink = Innovation_Links.FindIndex(IL => (IL.Start == start && IL.End == end));
+        int foundLink = Innovation_Links.FindIndex(IL => (IL.Start == start && IL.End == end && IL.Path == path));
         if (foundLink >= 0)
         {
             return foundLink;
         }
 
-        Innovation_Link newLink = new Innovation_Link(start, end);
-        Innovation_Links.Add(newLink);
+        new Innovation_Link(start, end, path);
 
         return Innovation_Links.Count - 1;
     }

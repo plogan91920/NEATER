@@ -9,6 +9,8 @@ public class Innovation_Node
     {
         Link = link;
         Object = obj;
+
+        Innovation_Nodes.Add(this);
     }
 
     public static int Innovate(string obj, int? link)
@@ -19,8 +21,7 @@ public class Innovation_Node
             return foundLink;
         }
 
-        Innovation_Node newLink = new Innovation_Node(obj, link);
-        Innovation_Nodes.Add(newLink);
+        new Innovation_Node(obj, link);
 
         return Innovation_Nodes.Count - 1;
     }

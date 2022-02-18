@@ -1,18 +1,20 @@
 public class Object
 {
     public string Name;
-    public List<Relationship> Relationships = new List<Relationship>();
     public float AverageNumber = 0;
     public int SampleSize = 1;
+    public static List<Object> Objects = new List<Object>();
 
     public Object(string name)
     {
         Name = name;
+
+        Objects.Add(this);
     }
 
-    void AddReference(Object obj)
+    public static Object? Find(string name)
     {
-        Relationships.Add(new Relationship(obj.Name));
+        return Objects.Find(obj => obj.Name == name);
     }
 
 }

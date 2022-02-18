@@ -1,7 +1,7 @@
 public class Genome
 {
-    List<Link> Links = new List<Link>();
-    List<Node> Nodes = new List<Node>();
+    public List<Link> Links = new List<Link>();
+    public List<Node> Nodes = new List<Node>();
     
     public void Phenotype()
     {
